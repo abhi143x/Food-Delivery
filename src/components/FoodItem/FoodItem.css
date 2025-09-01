@@ -69,3 +69,26 @@
     width: 30px;
     
 }
+
+.basket-icon {
+    background-color: tomato;
+    position: absolute;
+    bottom: 20px;
+    left: 15px;
+    padding: 3px 8px;
+    border-radius: 50px;
+}
+
+.basket-icon img {
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+    }
+
+.basket-icon span {
+    position: relative;
+    bottom: 4px;
+    color: white;
+    font-size: 12px;
+    margin-left: 5px;
+}   
