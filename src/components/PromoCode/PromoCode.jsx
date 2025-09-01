@@ -18,7 +18,6 @@ const PromoCode = () => {
 
   return (
     <div className="cart-promocode">
-      <p>If you have a promo code, enter it here</p>
       <div className="cart-promocode-input">
         <input
           type="text"
