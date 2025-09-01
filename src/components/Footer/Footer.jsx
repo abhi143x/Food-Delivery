@@ -9,7 +9,7 @@ const Footer = () => {
       <div className="footer-content">
         <div className="footer-content-left">
           <img className='footer-logo' src={assets.logo} alt="Logo" />
-          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Expedita delectus consectetur, inventore nemo sunt corporis ipsam deleniti in omnis eius perferendis voluptas iure, corrupti id!</p>
+          <p>Lunchbox food delivery provides a convenient solution for individuals, particularly busy office workers and students, who need healthy and accessible meals without the need to cook or leave their location.</p>
           <div className="footer-social-icons">
             <img src={assets.facebook_icon} alt="Facebook" />
             <img src={assets.twitter_icon} alt="Twitter" />
