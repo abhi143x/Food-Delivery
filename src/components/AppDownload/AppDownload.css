@@ -1,30 +1,47 @@
-.app-download{
-    margin: auto auto;
-    margin-top: 100px;
-    font-size: max(2.5vw, 1rem);
+/* AppDownload.css */
+.app-download {
+    margin: 80px auto;
     text-align: center;
-    font-weight: 500;
-    
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 32px;
 }
-.app-download-platforms{
+
+.app-download .paragraph {
+    font-size: clamp(28px, 3.5vw, 42px);
+    font-weight: 700;
+    color: var(--color-text-main);
+    line-height: 1.3;
+}
+
+.app-download .highlight {
+    color: var(--color-primary);
+}
+
+.app-download-platforms {
     display: flex;
     justify-content: center;
-    gap: max(1vw,8px);
-    margin-top: 30px;
-    /* height: 3.5vw; */
+    gap: 20px;
+    margin-top: 10px;
 }
 
-.paragraph{
-    text-align: center;
-}
-
-.app-download-platforms img{
-    width: max(30vw,120px);
-    max-width: 160px;
-    transition: 0.5s;
+.app-download-platforms img {
+    height: 56px;
+    width: auto;
+    border-radius: 8px; /* Depending on the badge, might not need this if transparent */
+    box-shadow: var(--shadow-sm);
+    transition: transform var(--transition-normal), box-shadow var(--transition-normal);
     cursor: pointer;
 }
 
-.app-download-platforms img:hover{
-  transform: scale(1.05);  
+.app-download-platforms img:hover {
+    transform: translateY(-4px) scale(1.02);
+    box-shadow: var(--shadow-md);
+}
+
+@media (max-width: 768px) {
+    .app-download { margin: 60px auto; gap: 24px; }
+    .app-download-platforms { gap: 16px; flex-direction: column; align-items: center; }
+    .app-download-platforms img { height: 50px; }
 }

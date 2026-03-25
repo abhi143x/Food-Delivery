@@ -1,18 +1,40 @@
-.food-display{
-    margin-top: 30px;
-
+/* FoodDisplay.css */
+.food-display {
+    margin-top: 40px;
+    padding-bottom: 40px;
 }
 
-.food-display h2{
-    font-size: max(2vw,24px);
-    font-weight: 600;
-
+.food-display h2 {
+    font-size: clamp(24px, 2.5vw, 32px);
+    font-weight: 700;
+    color: var(--color-text-main);
+    margin-bottom: 32px;
 }
 
-.food-display-list{
+.food-display-list {
     display: grid;
-    grid-template-columns: repeat(auto-fill,minmax(240px,1fr));
-    margin-top: 30px;
-    gap: 30px;
-    row-gap: 50px;
+    /* Clean, responsive grid utilizing minmax for fluid card sizing */
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 32px;
+    row-gap: 40px;
+}
+
+@media (max-width: 768px) {
+    .food-display {
+        margin-top: 20px;
+    }
+    .food-display h2 {
+        margin-bottom: 24px;
+    }
+    .food-display-list {
+        grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+        gap: 20px;
+        row-gap: 30px;
+    }
+}
+
+@media (max-width: 480px) {
+    .food-display-list {
+        grid-template-columns: 1fr; /* Single column on very small phones */
+    }
 }

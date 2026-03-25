@@ -1,94 +1,223 @@
-.food-item{
+/* Premium Food Item Card Styling */
+.food-item {
     width: 100%;
     margin: auto;
-    border-radius: 15px;
-    box-shadow: 0px 0px 10px #00000015;
-    transition: 0.3s;
-    animation:fadeIn 1s;
+    border-radius: 16px;
+    background: var(--color-bg-main);
+    box-shadow: 0px 6px 16px rgba(0, 0, 0, 0.06);
+    transition: transform 0.3s cubic-bezier(0.25, 0.8, 0.25, 1), box-shadow 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+    animation: fadeIn 0.8s ease-in-out;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    /* Ensures image respects the card's border radius */
+    will-change: transform, box-shadow;
+    /* Performance optimization for animations */
 }
 
-.food-item-image{
-    width: 100%;
-    border-radius: 15px 15px 0px 0px;
-    
-}
-.food-item-info{
-  padding: 20px; 
+/* Smooth hover interaction */
+.food-item:hover {
+    transform: translateY(-6px);
+    box-shadow: 0px 14px 28px rgba(0, 0, 0, 0.12);
 }
 
-.food-item-name-rating{
-  display: flex;  
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 10px;
-}
-
-.food-item-name-rating p{
-    font-size:20px ;
-    font-weight: 500;
-
-}
-
-.food-item-name-rating img{
-    width: 70px;
-}
-.food-item-desc{
-    font-size: 13.5px;
-}
-
-.food-item-price{
-    color: tomato;
-    font-size: 17px;
-    font-weight: 500;
-    margin: 10px 0px ;
-}
-
-.food-item-img-container{
+/* Image Container */
+.food-item-img-container {
     position: relative;
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    /* Maintains consistent image proportions */
+    overflow: hidden;
+    background-color: #f9f9f9;
+    /* Skeleton-like fallback */
 }
-.food-item-img-container .add{
-    width: 35px;
+
+.food-item-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    /* Prevents image distortion */
+    transition: transform 0.5s ease;
+}
+
+/* Appetizing zoom effect on hover */
+.food-item:hover .food-item-image {
+    transform: scale(1.08);
+}
+
+/* Interactive Add Button */
+.food-item-img-container .add {
+    width: 38px;
+    height: 38px;
     position: absolute;
     bottom: 15px;
     right: 15px;
     cursor: pointer;
     border-radius: 50%;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.15);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
-.food-item-counter{
-    position:absolute ;
+
+.food-item-img-container .add:hover {
+    transform: scale(1.1);
+    box-shadow: 0px 6px 14px rgba(0, 0, 0, 0.2);
+}
+
+/* Quantity Control pill */
+.food-item-counter {
+    position: absolute;
     bottom: 15px;
     right: 15px;
     display: flex;
     align-items: center;
-    gap: 10px;
-    padding: 6px;
+    gap: 12px;
+    padding: 6px 8px;
     border-radius: 50px;
-    background-color: white;
-}
-.food-item-counter img{
-    width: 30px;
-    
+    background-color: var(--color-bg-alt);
+    backdrop-filter: blur(4px);
+    /* Premium frosty look */
+    box-shadow: 0px 6px 16px rgba(0, 0, 0, 0.12);
 }
 
+.food-item-counter img {
+    width: 28px;
+    height: 28px;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+}
+
+.food-item-counter img:hover {
+    transform: scale(1.15);
+}
+
+.food-item-counter p {
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--color-text-main);
+    min-width: 16px;
+    text-align: center;
+    margin: 0;
+}
+
+/* Dynamic Basket Icon Link */
 .basket-icon {
-    background-color: tomato;
     position: absolute;
-    bottom: 20px;
+    bottom: 15px;
     left: 15px;
-    padding: 3px 8px;
+    display: flex;
+    align-items: center;
+    background-color: var(--color-primary); /* Red Primary */
+    padding: 8px 14px;
     border-radius: 50px;
+    text-decoration: none;
+    box-shadow: 0px 4px 12px rgba(255, 99, 71, 0.35);
+    transition: background-color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.basket-icon:hover {
+    background-color: #fa5336;
+    transform: translateY(-2px);
+    box-shadow: 0px 6px 16px rgba(255, 99, 71, 0.45);
 }
 
 .basket-icon img {
-    width: 20px;
-    height: 20px;
-    cursor: pointer;
-    }
+    width: 18px;
+    height: 18px;
+}
 
 .basket-icon span {
-    position: relative;
-    bottom: 4px;
-    color: white;
-    font-size: 12px;
-    margin-left: 5px;
-}   
+    color: #ffffff;
+    font-size: 13px;
+    font-weight: 600;
+    margin-left: 6px;
+}
+
+/* Info Section (Typography & Layout) */
+.food-item-info {
+    padding: 22px 20px;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    /* Pushes content optimally if cards dictate height */
+}
+
+.food-item-name-rating {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 10px;
+    gap: 12px;
+}
+
+.food-item-name-rating h3 {
+    font-size: 19px;
+    font-weight: 700;
+    color: var(--color-text-main);
+    /* Dark slate */
+    line-height: 1.25;
+    margin: 0;
+    letter-spacing: -0.3px;
+}
+
+.food-item-name-rating img {
+    width: 70px;
+    margin-top: 3px;
+    object-fit: contain;
+    /* Shifts the original orange/tomato stars down to pure red, leaving the grey/unfilled stars unaffected */
+    filter: hue-rotate(-15deg) saturate(130%);
+}
+
+.food-item-desc {
+    color: var(--color-text-muted);
+    /* Elegant muted tone */
+    font-size: 14.5px;
+    line-height: 1.5;
+    margin: 0 0 18px 0;
+    flex-grow: 1;
+    /* Pushes price to the bottom gracefully */
+}
+
+.food-item-price {
+    color: var(--color-primary); /* Red Primary */
+    font-size: 22px;
+    font-weight: 700;
+    margin: 0;
+}
+
+.currency-symbol {
+    font-size: 18px;
+    font-weight: 600;
+    margin-right: 4px;
+}
+
+/* Responsive Breakpoints */
+@media (max-width: 768px) {
+    .food-item-img-container {
+        aspect-ratio: 16 / 10;
+    }
+
+    .food-item-info {
+        padding: 18px 16px;
+    }
+
+    .food-item-name-rating h3 {
+        font-size: 18px;
+    }
+
+    .food-item-price {
+        font-size: 20px;
+    }
+
+    .food-item-desc {
+        font-size: 13.5px;
+        margin-bottom: 16px;
+    }
+
+    .basket-icon {
+        padding: 7px 12px;
+    }
+
+    .basket-icon span {
+        font-size: 12px;
+    }
+}

@@ -1,85 +1,157 @@
-.place-order{
-    display: flex;
-    align-items: start;
-    justify-content: space-between;
-    gap: 50px;
-    margin-top: 100px;
-}
-.place-order-left{
-    width: 100%;
-    max-width: max(30%,500px);
+/* placeorder.css */
+.place-order {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 60px;
+  margin-top: 60px;
+  padding-bottom: 60px;
 }
 
-.place-order-left .title{
-    font-size: 30px;
-    font-weight: 600;
-    margin-bottom: 50px;
+.place-order-left {
+  width: 100%;
+  flex: 1;
+  /* Allow it to grow elegantly */
+  background-color: var(--color-bg-main);
+  padding: 32px;
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-sm);
 }
 
-.place-order-left input{
-    margin-bottom: 15px;
-    width: 100%;
-    padding: 10px;
-    border: 1px solid #c5c5c5;
-    border-radius: 5px;
-    outline-color: tomato;
+.place-order-left .title {
+  font-size: 28px;
+  font-weight: 700;
+  margin-bottom: 32px;
+  color: var(--color-text-main);
 }
 
-.place-order-left .multi-fields{
-    display: flex;
-    gap: 10px;
-
+.place-order-left input {
+  margin-bottom: 20px;
+  width: 100%;
+  padding: 14px 16px;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  outline: none;
+  font-size: 15px;
+  background-color: var(--color-bg-alt);
+  color: var(--color-text-main);
+  transition: border-color var(--transition-fast), box-shadow var(--transition-fast), background-color var(--transition-fast);
 }
 
-.place-order-right{
-    width: 100%;
-    max-width: max(40%,500px);
-
-}
-.place-order .cart-total button{
-   margin-top: 30px; 
+.place-order-left input:focus {
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.2); /* matches new red opacity */
+  background-color: var(--color-bg-main);
 }
 
+.place-order-left .multi-fields {
+  display: flex;
+  gap: 16px;
+}
 
+/* Right Side - Cart Total Reusable Styling */
+.place-order-right {
+  width: 100%;
+  max-width: 450px;
+}
+
+/* Ensures checkout button is uniform */
+.place-order .cart-total button {
+  margin-top: 24px;
+}
 
 /* Responsive Design */
 @media (max-width: 1024px) {
   .place-order {
-    gap: 30px;
-  }
-
-  .place-order-left .title {
-    font-size: 26px;
+    gap: 40px;
   }
 }
 
 @media (max-width: 768px) {
   .place-order {
     flex-direction: column;
-    margin-top: 50px;
+    margin-top: 40px;
+    gap: 32px;
   }
 
-  .place-order-left,
+  .place-order-left {
+    padding: 24px;
+  }
+
+  /* On mobile, stack multi-fields for better UX */
+  .place-order-left .multi-fields {
+    flex-direction: column;
+    gap: 0;
+  }
+
   .place-order-right {
     max-width: 100%;
   }
+}
 
-  .place-order-left .title {
-    font-size: 24px;
-    margin-bottom: 30px;
+/* Order Confirmation Modal */
+.order-confirm-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2000;
+  animation: fadeIn var(--transition-fast);
+}
+
+.order-confirm-box {
+  background-color: var(--color-bg-main);
+  padding: 40px;
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-lg);
+  text-align: center;
+  max-width: 400px;
+  width: 90%;
+  transform: scale(0.95);
+  animation: popIn 0.3s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+}
+
+@keyframes popIn {
+  to {
+    transform: scale(1);
   }
 }
 
-@media (max-width: 480px) {
-  .place-order-left input,
-  .place-order-left .multi-fields input {
-    padding: 8px;
-    font-size: 14px;
-  }
+.order-confirm-box h3 {
+  font-size: 26px;
+  color: var(--color-text-main);
+  margin-bottom: 12px;
+}
 
-  .place-order .cart-total button {
-    width: 100%;
-    padding: 12px;
-    font-size: 16px;
-  }
+.order-confirm-box p {
+  color: var(--color-text-muted);
+  margin-bottom: 24px;
+  line-height: 1.5;
+  font-size: 16px;
+}
+
+.order-confirm-box button {
+  background-color: var(--color-primary);
+  color: white;
+  border: none;
+  padding: 14px 28px;
+  border-radius: var(--radius-pill);
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color var(--transition-fast), transform var(--transition-fast), box-shadow var(--transition-fast);
+  box-shadow: 0 4px 12px rgba(239, 68, 68, 0.3);
+}
+
+.order-confirm-box button:hover {
+  background-color: var(--color-primary-hover);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(239, 68, 68, 0.45);
 }
