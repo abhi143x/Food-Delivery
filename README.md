@@ -5,8 +5,6 @@ A modern, premium food delivery web application built with **React 19** and **Vi
 ![React](https://img.shields.io/badge/React-19.1.1-61DAFB?style=for-the-badge&logo=react&logoColor=white)
 ![Vite](https://img.shields.io/badge/Vite-7.1.2-646CFF?style=for-the-badge&logo=vite&logoColor=white)
 ![React Router](https://img.shields.io/badge/React_Router-7.8.2-CA4245?style=for-the-badge&logo=react-router&logoColor=white)
-![Live](https://img.shields.io/badge/Live-Link-success?style=for-the-badge&logo=vercel&logoColor=white)
-
 ---
 
 ## 🔗 Project Links
